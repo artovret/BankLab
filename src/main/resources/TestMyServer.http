@@ -1,0 +1,127 @@
+###
+GET http://localhost:8080/card/
+Accept: application/json
+###
+GET http://localhost:8080/user/Petia
+Accept: application/json
+###
+GET http://localhost:8080/user/Artem
+Accept: application/json
+
+###
+GET http://localhost:8080/user/Nikita/Balance
+Accept: application/json
+
+###
+GET http://localhost:8080/user/Artem/Balance
+Accept: application/json
+###
+GET http://localhost:8080/user/Artem/88888888899914439333
+Accept: application/json
+###
+GET http://localhost:8080/user/Artem/7777 7777 7777 7777
+Accept: application/json
+
+###
+GET http://localhost:8080/user/Nikita/7777 7777 7777 7777
+Accept: application/json
+
+###
+POST http://localhost:8080/user/
+Content-Type: application/json
+
+[
+  {
+  "balance": "50000",
+  "cardName": "7777 7777 7777 7777"
+},
+  {
+    "cardName": "6666 6666 6666 6666",
+    "balance": "30000"
+  },
+  {
+    "cardName": "3333 3333 5464 5464",
+    "balance": "30000"
+  },
+  {
+    "cardName": "4444 4444 4648 6865",
+    "balance": "30000"
+  },
+  {
+    "cardName": "1111 1111 1111 1111",
+    "balance": "30000"
+  },
+  {
+    "cardName": "4444 4444 4648 6865",
+    "balance": "30000"
+  }
+]
+
+
+###
+POST http://localhost:8080/card/
+Content-Type: application/json
+
+[
+  {
+    "code": "88888888899914439333"
+  },
+  {
+    "code": "88888888899914439333"
+  },
+  {
+    "code": "88888888899914439333"
+  },
+  {
+    "code": "88888888899914439333"
+  }
+]
+
+
+###
+POST http://localhost:8080/send/
+Content-Type: application/json
+
+[
+  {
+    "sender":"40817810099910004777",
+    "receiver":"40817810099910006666",
+    "summ":"30000"
+  },
+  {
+    "sender":"40817810099910004777",
+    "receiver":"40817810099910009999",
+    "summ":"50000"
+  },
+  {
+    "sender":"88888888899914439333",
+    "receiver":"40817810099910006666",
+    "summ":"100000"
+  },
+  {
+    "sender":"88888888899914439333",
+    "receiver":"40817810099910004777",
+    "summ":"5900"
+  },
+  {
+    "sender":"40817810099910004777",
+    "receiver":"40817810099910009999",
+    "summ":"4800"
+  },
+  {
+    "sender":"40817810099910004777",
+    "receiver":"88888888899914439333",
+    "summ":"23000"
+  },
+  {
+    "sender":"88888888899914439333",
+    "receiver":"40817810099910009999",
+    "summ":"1000"
+  }
+]
+
+
+###
+GET http://localhost:8080/send/
+Content-Type: application/json
+

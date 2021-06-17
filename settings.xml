@@ -1,0 +1,67 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <!-- Будьте кибербезопасным! Не помещайте свой пароль в git репозиторий! -->
+    <!-- Вместо этого скопируйте файл в ~/.m2/ и там заполните эти данные (если нужно) -->
+    <servers>
+        <server>
+            <id>release.repo</id>
+            <username>NAME</username>
+            <password>PASSWORD</password>
+        </server>
+        <server>
+            <id>snapshot.repo</id>
+            <username>NAME</username>
+            <password>PASSWORD</password>
+        </server>
+        <server>
+            <id>internal</id>
+            <username>NAME</username>
+            <password>PASSWORD</password>
+        </server>
+        <server>
+            <id>Nexus_PROD</id>
+            <username>${repo.username}</username>
+            <password>${repo.password}</password>
+        </server>
+        <server>
+            <id>Nexus CD</id>
+            <username>${repo.username}</username>
+            <password>${repo.password}</password>
+        </server>
+    </servers>
+    <mirrors>
+        <mirror>
+            <id>internal</id>
+            <name>Mirror of central</name>
+            <url>http://sbtatlas.sigma.sbrf.ru/nexus/content/groups/internal</url>
+            <mirrorOf>*</mirrorOf>
+        </mirror>
+    </mirrors>
+
+    <pluginGroups>
+        <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
+    </pluginGroups>
+
+
+    <profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <sonar.host.url>https://sbt-sonarqube.sigma.sbrf.ru</sonar.host.url>
+                <sonar.login>7ebad7b804699eeb7539c6fb6c31e98c8940c075</sonar.login>
+                <sonar.sources>src/main</sonar.sources>
+                <sonar.tests>src/test</sonar.tests>
+                <sonar.language>java</sonar.language>
+                <sonar-maven-plugin>3.4.0.905</sonar-maven-plugin>
+                <jacoco.version>0.8.7</jacoco.version>
+                <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+            </properties>
+        </profile>
+    </profiles>
+</settings>
